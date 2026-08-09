@@ -61,23 +61,20 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-09T14:34:08.740Z  
+**Submitted:** 2026-08-09T14:37:45.736Z  
 
 ```java
 class Solution {
     public int majorityElement(int[] arr) {
         // write your code here
-        int count= 0 ;
+        
       int max = Integer.MIN_VALUE;
         int n = arr.length;
         for(int i =0;i<arr.length;i++){
             
             if(arr[i]>max){ 
                 max = arr[i];
-                count++;
-                if(count>=(n/2)){
-                    return max;
-                }
+                
         }
         
     }
