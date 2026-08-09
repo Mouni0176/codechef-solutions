@@ -1,16 +1,17 @@
 class Solution {
     public int majorityElement(int[] arr) {
-        // write your code here
+        
         
       int max = Integer.MIN_VALUE;
         int n = arr.length;
         for(int i =0;i<arr.length;i++){
-            int count = 0 ;
-            for(int j=0; j<arr.length;j++){
-                max = arr[i];
+            int count = 1 ;
+            max = arr[i];
+            for(int j=i+1; j<arr.length;j++){
+                
             
             if(arr[j]==max){ 
-                max = arr[i];
+                
                 count++;
                 
             }
