@@ -61,7 +61,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-09T14:38:01.135Z  
+**Submitted:** 2026-08-09T14:50:36.767Z  
 
 ```java
 class Solution {
@@ -71,10 +71,18 @@ class Solution {
       int max = Integer.MIN_VALUE;
         int n = arr.length;
         for(int i =0;i<arr.length;i++){
-            
-            if(arr[i]>max){ 
+            int count = 0 ;
+            for(int j=0; j<arr.length;j++){
                 max = arr[i];
+            
+            if(arr[j]==max){ 
+                max = arr[i];
+                count++;
                 
+            }
+            if(count>=n/2){
+                return max;
+            }
         }
         
     }
