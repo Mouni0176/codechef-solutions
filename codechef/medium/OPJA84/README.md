@@ -22,7 +22,7 @@ The given code is an example of single inheritance:
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-11T16:37:24.803Z  
+**Submitted:** 2026-08-12T17:28:50.291Z  
 
 ```java
 class Animal {
