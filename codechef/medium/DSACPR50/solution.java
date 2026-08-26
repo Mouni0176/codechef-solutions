@@ -14,7 +14,7 @@ class Codechef
 		    int n = scanner.nextInt();
 		    long maxi = Long.MIN_VALUE;
 		    for(int j= 0 ;j<n;j++){
-		        long m = scanner.nextInt();
+		        long m = scanner.nextLong();
 		        
 		        sum += m;
 		        
