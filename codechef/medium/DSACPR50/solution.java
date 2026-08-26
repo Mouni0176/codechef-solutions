@@ -10,11 +10,11 @@ class Codechef
 		int test = scanner.nextInt();
 		
 		for(int i = 0;i<test;i++){
-		    int sum = 0;
+		    long sum = 0;
 		    int n = scanner.nextInt();
-		    int maxi = Integer.MIN_VALUE;
+		    long maxi = Integer.MIN_VALUE;
 		    for(int j= 0 ;j<n;j++){
-		        int m = scanner.nextInt();
+		        long m = scanner.nextInt();
 		        
 		        sum += m;
 		        
