@@ -53,7 +53,7 @@ Test Case $3.$ For the third array, it's $23$ $($from subarray $[5, 4, -1, 7, 8]
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T11:13:49.122Z  
+**Submitted:** 2026-08-26T11:13:27.797Z  
 
 ```java
 import java.util.*;
