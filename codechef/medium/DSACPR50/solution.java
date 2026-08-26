@@ -17,11 +17,13 @@ class Codechef
 		        int m = scanner.nextInt();
 		        
 		        sum += m;
+		        
+		        maxi = Math.max(sum,maxi);
 		        if(sum < 0){
 		            sum = 0;
 		            
 		        }
-		        maxi = Math.max(sum,maxi);
+		        
 		    }
 		    System.out.println(maxi);
 		   
