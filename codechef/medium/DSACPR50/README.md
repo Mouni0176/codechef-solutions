@@ -53,7 +53,7 @@ Test Case $3.$ For the third array, it's $23$ $($from subarray $[5, 4, -1, 7, 8]
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T11:07:58.479Z  
+**Submitted:** 2026-08-26T11:10:03.551Z  
 
 ```java
 import java.util.*;
@@ -75,11 +75,13 @@ class Codechef
 		        int m = scanner.nextInt();
 		        
 		        sum += m;
+		        
+		        maxi = Math.max(sum,maxi);
 		        if(sum < 0){
 		            sum = 0;
 		            
 		        }
-		        maxi = Math.max(sum,maxi);
+		        
 		    }
 		    System.out.println(maxi);
 		   
