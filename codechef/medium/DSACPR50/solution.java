@@ -12,7 +12,7 @@ class Codechef
 		for(int i = 0;i<test;i++){
 		    long sum = 0;
 		    int n = scanner.nextInt();
-		    long maxi = Integer.MIN_VALUE;
+		    long maxi = Long.MIN_VALUE;
 		    for(int j= 0 ;j<n;j++){
 		        long m = scanner.nextInt();
 		        
