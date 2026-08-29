@@ -1,24 +1,23 @@
+import java.util.*;
 class Solution {
     public int[] findRepeatingAndMissing(int[] arr) {
-        int n= (arr.length*(arr.length+1))/2;
-        
-        int found = 0;
-        
-        for(int i=0;i<arr.length-1;i++){
-            for(int j=i+1;j<arr.length;j++)
-            {
-                if((arr[i])==arr[j]){
-                    found = arr[i];
-                }
+        HashSet<Integer> seen = new HashSet<>();
+        int [] res = new int[2];
+        for(int i = 0;i<arr.length;i++){
+            if(seen.contains(arr[i])){
+                res[0] = arr[i];
             }
-        
-        }
-        for(int i = 0;i < arr.length;i++){
-            n-=arr[i];
+            else{
+                seen.add(arr[i]);
+            }
             
         }
-        
-        n=n+found;
-        return new int[] {found,n};
+        for(int i=1;i<=arr.length;i++){
+            if(!seen.contains(i)){
+                res[1]=i;
+                break;
+            }
+        }
+       return res;
     }
 }
