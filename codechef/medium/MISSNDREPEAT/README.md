@@ -66,15 +66,15 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-29T14:06:33.427Z  
+**Submitted:** 2026-08-29T14:08:20.774Z  
 
 ```java
 class Solution {
     public int[] findRepeatingAndMissing(int[] arr) {
         int n= (arr.length*(arr.length+1))/2;
-        // write your code here
+        
         int found = 0;
-        int ff=0;
+        
         for(int i=0;i<arr.length-1;i++){
             for(int j=i+1;j<arr.length;j++)
             {
