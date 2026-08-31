@@ -66,7 +66,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T15:15:52.208Z  
+**Submitted:** 2026-08-31T15:17:07.417Z  
 
 ```java
 import java.util.*;
@@ -100,7 +100,7 @@ class Codechef
                 arr2[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        int arr3[][] = new int [m][n];
+        int arr3[][] = new int [m][b];
         if(n==a){
             for(int i=0;i<m;i++){
                 for(int j=0;j<b;j++){
