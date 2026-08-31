@@ -29,7 +29,7 @@ class Codechef
                 arr2[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        int arr3[][] = new int [m][n];
+        int arr3[][] = new int [m][b];
         if(n==a){
             for(int i=0;i<m;i++){
                 for(int j=0;j<b;j++){
