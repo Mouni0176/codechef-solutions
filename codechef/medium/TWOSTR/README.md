@@ -51,7 +51,7 @@ No
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T14:10:54.342Z  
+**Submitted:** 2026-09-08T14:20:39.380Z  
 
 ```java
 import java.util.Scanner;
@@ -63,7 +63,7 @@ public class Main {
 
         while (t-- > 0) {
             boolean found =true;
-            boolean finall =true;
+            boolean finall = true;
             String x = scanner.next();
             String y = scanner.next();
             for(int i =0;i<x.length();i++){
