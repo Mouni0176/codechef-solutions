@@ -7,7 +7,7 @@ public class Main {
 
         while (t-- > 0) {
             boolean found =true;
-            boolean finall =true;
+            boolean finall = true;
             String x = scanner.next();
             String y = scanner.next();
             for(int i =0;i<x.length();i++){
