@@ -4,112 +4,89 @@
 
 ## Problem
 
-### Password
+### Chef and the Wildcard Matching
 
-Chef is planning to setup a secure password for his Codechef account. For a password to be secure the following conditions should be satisfied:
-
-- Password must contain at least one lower case letter $[a-z]$;
-- Password must contain at least one upper case letter [A−Z] strictly inside (first or the last character won’t be considered)
-- Password must contain at least one digit $[0-9]$ strictly inside;
-- Password must contain at least one special character from the set $\{$ '@', '#', '%', '&', '?' $\}$ strictly inside;
-- Password must be at least $10$ characters in length, but it can be longer.
-
-Chef has generated several strings and now wants you to check whether the passwords are secure based on the above criteria. Please help Chef in doing so.
+Chef wants to implement wildcard pattern matching supporting only the wildcard '?'. The wildcard character '?' can be substituted by any single lower case English letter for matching. He has two strings  **X**  and  **Y**  of equal length, made up of lower case letters and the character '?'. He wants to know whether the strings  **X**  and  **Y**  can be matched or not.
 
 ### Input
-- First line will contain $T$, number of testcases. Then the testcases follow.
-- Each testcase contains of a single line of input, string $S$.
+
+The first line of input contain an integer  **T**  denoting the number of test cases. Each test case consists of two lines, the first line contains the string  **X**  and the second contains the string  **Y**.
+
 ### Output
 
-For each testcase, output in a single line "YES" if the password is secure and "NO" if it is not.
+For each test case, output a single line with the word  **Yes**  if the strings can be matched, otherwise output  **No**.
 
 ### Constraints
-- $1 \leq |S| \leq 20$
-- All the characters in $S$ are one of the following: lower case letters $[a-z]$, upper case letters $[A-Z]$, digits $[0-9]$, special characters from the set $\{$ '@', '#', '%', '&', '?' $\}$
-- Sum of length of strings over all tests is atmost $10^6$
+- 1 ≤ T ≤ 50
+- Both X and Y have equal length and the length is between 1 and 10.
+- Both X and Y consist of lower case letters and the character '?'.
 ### Sample 1:
 Input
 Output
 
 ```
-3
-#cookOff#P1
-U@code4CHEFINA
-gR3@tPWD
+2
+s?or?
+sco??
+stor?
+sco??
 ```
 
 ```
-NO
-YES
-NO
+Yes
+No
 ```
 
 ### Explanation:
 
- **Example case 1:**  Condition $3$ is not satisfied, because the only digit is not strictly inside.
+ **Test case $1$:**  One of the possible ways to match both the strings is $\texttt{score}$. This can be done by:
 
- **Example case 2:**  All conditions are satisfied.
+- Replace $1^{st}$ and $2^{nd}$ $\texttt{?}$ of string $X$ by characters $\texttt{c}$ and $\texttt{e}$ respectively.
+- Replace $1^{st}$ and $2^{nd}$ $\texttt{?}$ of string $Y$ by characters $\texttt{r}$ and $\texttt{e}$ respectively.
 
- **Example case 3:**  Condition $5$ is not satisfied, because the length of this string is 8.
+ **Test case $2$:**  There exists no way to fill the $\texttt{?}$ such that the strings become equal. Thus, the answer is `No`.
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:34:35.341Z  
+**Submitted:** 2026-09-08T14:10:42.602Z  
 
 ```java
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+import java.util.Scanner;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Scanner scanner = new Scanner(System.in);
-		if(scanner.hasNextInt()){
-		    int test = scanner.nextInt();
-		    scanner.nextLine();
-		
-		for(int j=0;j<test;j++){
-		    boolean a1=false;
-		    boolean aa1 = false;
-		    boolean num = false;
-		    boolean chaar = false;
-		    boolean lengthh = false;
-		String input = scanner.nextLine();
-        for(int i=0;i<input.length();i++){
-            if(input.charAt(i)>='a' && input.charAt(i)<='z'){
-                a1 = true;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+
+        while (t-- > 0) {
+            boolean found =true;
+            boolean finall =true;
+            String x = scanner.next();
+            String y = scanner.next();
+            for(int i =0;i<x.length();i++){
+                if(x.charAt(i)!=y.charAt(i)){
+                    found =false;
+                }
+                if((x.charAt(i)=='?')||(y.charAt(i)=='?')){
+                    found =true;
+                }
+                if(found==false){
+                    finall = false;
+                }
             }
-            if((i>0)&& (i<input.length()-1)){
-            if(input.charAt(i)>='A' && input.charAt(i)<='Z'){
-                aa1 =true;
-            }
+                if(finall ==true){
+                    System.out.println("YES");
+                }
+                else{
+                    System.out.println("NO");
+                }
+            
            
-            if(input.charAt(i)<='9' && input.charAt(i)>='0'){
-                num=true;
-            }
-            if((input.charAt(i)=='@') ||(input.charAt(i)=='#')||(input.charAt(i)=='%')|| (input.charAt(i)=='&') || (input.charAt(i)=='?')){
-                chaar = true;
-            }
-           
-            }
         }
-            if(input.length()>=10){
-                lengthh = true;
-            }
-            if((a1 == true)&& (aa1 == true)&& (num ==true)&& (chaar== true)&&(lengthh==true)){
-                System.out.println("YES");
-            }
-            else{
-                System.out.println("NO");
-            }
-        }
-		}
-	}
+    }
 }
 
 ```
