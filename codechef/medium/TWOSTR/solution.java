@@ -1,51 +1,34 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+import java.util.Scanner;
 
-class Codechef
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		Scanner scanner = new Scanner(System.in);
-		if(scanner.hasNextInt()){
-		    int test = scanner.nextInt();
-		    scanner.nextLine();
-		
-		for(int j=0;j<test;j++){
-		    boolean a1=false;
-		    boolean aa1 = false;
-		    boolean num = false;
-		    boolean chaar = false;
-		    boolean lengthh = false;
-		String input = scanner.nextLine();
-        for(int i=0;i<input.length();i++){
-            if(input.charAt(i)>='a' && input.charAt(i)<='z'){
-                a1 = true;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+
+        while (t-- > 0) {
+            boolean found =true;
+            boolean finall =true;
+            String x = scanner.next();
+            String y = scanner.next();
+            for(int i =0;i<x.length();i++){
+                if(x.charAt(i)!=y.charAt(i)){
+                    found =false;
+                }
+                if((x.charAt(i)=='?')||(y.charAt(i)=='?')){
+                    found =true;
+                }
+                if(found==false){
+                    finall = false;
+                }
             }
-            if((i>0)&& (i<input.length()-1)){
-            if(input.charAt(i)>='A' && input.charAt(i)<='Z'){
-                aa1 =true;
-            }
+                if(finall ==true){
+                    System.out.println("YES");
+                }
+                else{
+                    System.out.println("NO");
+                }
+            
            
-            if(input.charAt(i)<='9' && input.charAt(i)>='0'){
-                num=true;
-            }
-            if((input.charAt(i)=='@') ||(input.charAt(i)=='#')||(input.charAt(i)=='%')|| (input.charAt(i)=='&') || (input.charAt(i)=='?')){
-                chaar = true;
-            }
-           
-            }
         }
-            if(input.length()>=10){
-                lengthh = true;
-            }
-            if((a1 == true)&& (aa1 == true)&& (num ==true)&& (chaar== true)&&(lengthh==true)){
-                System.out.println("YES");
-            }
-            else{
-                System.out.println("NO");
-            }
-        }
-		}
-	}
+    }
 }
