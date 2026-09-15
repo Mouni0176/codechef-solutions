@@ -21,7 +21,7 @@ public static int myAtoi(String s) {
         num =num*10+(s.charAt(i)-'0');
         if((sign ==1) && (num>Integer.MAX_VALUE))
             return Integer.MAX_VALUE;
-        if((sign==-1) && (-num<Integer.MIN_VALUE))
+        if((sign==-1) && (num<Integer.MIN_VALUE))
             return Integer.MIN_VALUE;
             
         i++;
