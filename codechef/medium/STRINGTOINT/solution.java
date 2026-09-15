@@ -3,7 +3,7 @@ public static int myAtoi(String s) {
         return 0;
     }
     int i=0,n=s.length();
-    while(i<s.charAt(i) && n==' ' ){
+    while(i<n && s.charAt(i) == ' ' ){
         i++;
     }
     if(i==n) return 0;
