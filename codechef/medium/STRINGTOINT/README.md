@@ -82,7 +82,7 @@ word123
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-15T14:46:45.834Z  
+**Submitted:** 2026-09-15T14:43:35.480Z  
 
 ```java
 public static int myAtoi(String s) {
@@ -108,7 +108,7 @@ public static int myAtoi(String s) {
         num =num*10+(s.charAt(i)-'0');
         if((sign ==1) && (num>Integer.MAX_VALUE))
             return Integer.MAX_VALUE;
-        if((sign==-1) && (-num<Integer.MIN_VALUE))
+        if((sign==-1) && (num<Integer.MIN_VALUE))
             return Integer.MIN_VALUE;
             
         i++;
