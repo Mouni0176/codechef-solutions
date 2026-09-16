@@ -82,7 +82,7 @@ word123
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-15T14:43:35.480Z  
+**Submitted:** 2026-09-15T14:43:45.484Z  
 
 ```java
 public static int myAtoi(String s) {
