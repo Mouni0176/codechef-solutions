@@ -11,10 +11,16 @@ class Codechef
 		
 		char letter = scanner.next().charAt(0);
 		
+		int found =-1;
 		for(int i=0;i<word.length();i++){
 		    if(word.charAt(i) == letter){
 		        System.out.println(i);
+		        found =0;
 		    }
+		   
+		}
+		if(found ==-1){
+		    System.out.println("-1");
 		}
 	}
 }
