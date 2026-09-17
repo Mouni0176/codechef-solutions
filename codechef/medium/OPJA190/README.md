@@ -4,16 +4,18 @@
 
 ## Problem
 
-_Description not available._
+### Multiple Choice Question
+
+Which method is used to wake up all waiting threads on an object in Java?
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T06:00:48.145Z  
+**Submitted:** 2026-09-17T06:01:08.257Z  
 
-```java
+```cpp
 class Codechef {
     public static void main(String[] args) {
         final Object lock = new Object();
