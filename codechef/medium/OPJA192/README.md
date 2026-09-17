@@ -13,7 +13,7 @@ What happens when a non-static (instance) method is marked as static synchronize
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T06:01:52.820Z  
+**Submitted:** 2026-09-17T06:01:59.609Z  
 
 ```cpp
 class Codechef {
