@@ -16,6 +16,7 @@ class Codechef
 		    if(word.charAt(i) == letter){
 		        System.out.println(i);
 		        found =true;
+		        break;
 		    }
 		   
 		}
