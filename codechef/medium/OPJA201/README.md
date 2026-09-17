@@ -4,71 +4,85 @@
 
 ## Problem
 
-_Description not available._
+### Coding Problem
+
+You are tasked with creating a Java program that demonstrates the use of multi-threading and the `interrupt` method. Your program should perform the following tasks:
+
+- Create an empty list to store integers.
+- Create a thread, let's call it the "InsertThread," which inserts elements into the list.
+- The "InsertThread" should insert elements into the list until its size is not more than 5.
+- Each time an element is inserted into the list, it should be printed to the console, indicating the element's value.
+- The "InsertThread" should simulate some work between insertions. You can do this by making it sleep for 5 ms after inserting each element.
+- In the main thread, monitor the size of the list. When the list size is not more than 5, use the interrupt method to stop the "InsertThread."
+- Ensure that the "InsertThread" responds to the interruption gracefully, by exiting the insertion loop when interrupted.
+
+Expected Output
+
+```
+Adding element: 1
+Adding element: 2
+Adding element: 3
+Adding element: 4
+Adding element: 5
+
+```
+
+### Task
+
+Your task is to complete the source code to demonstrate handling of thread interruptions..
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T05:57:06.239Z  
+**Submitted:** 2026-09-17T05:59:22.140Z  
 
 ```java
 import java.util.ArrayList;
 import java.util.List;
 
-class Multiplier extends Thread {
-    private List<Integer> inputList;
-    private List<Integer> outputList;
-    private int startIndex;
-
-    public Multiplier(List<Integer> inputList, List<Integer> outputList, int startIndex) {
-        this.inputList=inputList;
-        this.outputList=outputList;
-        this.startIndex=startIndex;
-        
-    }
-
-    @Override
-    public void run() {
-        for(int i=startIndex;i<inputList.size();i+=2){
-            int value = inputList.get(i)*2;
-            outputList.set(i,value);
-            Thread.yield();
-        }
-    }
-}
-
 class Codechef {
     public static void main(String[] args) {
-        List<Integer> inputList = new ArrayList<>();
-        List<Integer> outputList = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        Runnable task = new InsertTask(list);
 
-        // Initialize the inputList
-        for (int i = 1; i <= 6; i++) {
-            inputList.add(i);
-        }
+        Thread thread = new Thread(task);
+        thread.start();
 
-        // Initialize the outputList with the same size as the inputList
-        for (int i = 0; i < 6; i++) {
-            outputList.add(0);
-        }
-
-        Multiplier evenMultiplier = new Multiplier(inputList, outputList, 0);
-        Multiplier oddMultiplier = new Multiplier(inputList, outputList, 1);
-
-        evenMultiplier.start();
-        oddMultiplier.start();
-
+        // Sleep for a while to allow the thread to execute
         try {
-            evenMultiplier.join();
-            oddMultiplier.join();
+            Thread.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        // Print the outputList
-        System.out.println("Output List: " + outputList);
+        // Interrupt the thread when the list size exceeds 
+        if (list.size() >= 5) {
+            thread.interrupt();
+        }
+    }
+}
+
+class InsertTask implements Runnable {
+    private List<Integer> list;
+
+    public InsertTask(List<Integer> list) {
+        this.list = list;
+    }
+
+    public void run() {
+        int value = 1;
+        while (!Thread.currentThread().isInterrupted() && list.size() < 5) {
+            System.out.println("Adding element: " + value);
+            list.add(value);
+            value++;
+            try {
+                Thread.sleep(5); // Simulate some work
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Restore interrupted status
+            }
+        }
     }
 }
 
