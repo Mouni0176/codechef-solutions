@@ -36,7 +36,7 @@ g
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-17T14:50:50.795Z  
+**Submitted:** 2026-09-17T14:53:21.789Z  
 
 ```java
 import java.util.*;
@@ -52,10 +52,16 @@ class Codechef
 		
 		char letter = scanner.next().charAt(0);
 		
+		int found =-1;
 		for(int i=0;i<word.length();i++){
 		    if(word.charAt(i) == letter){
 		        System.out.println(i);
+		        found =0;
 		    }
+		   
+		}
+		if(found ==-1){
+		    System.out.println("-1");
 		}
 	}
 }
