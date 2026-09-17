@@ -1,57 +1,46 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Multiplier extends Thread {
-    private List<Integer> inputList;
-    private List<Integer> outputList;
-    private int startIndex;
-
-    public Multiplier(List<Integer> inputList, List<Integer> outputList, int startIndex) {
-        this.inputList=inputList;
-        this.outputList=outputList;
-        this.startIndex=startIndex;
-        
-    }
-
-    @Override
-    public void run() {
-        for(int i=startIndex;i<inputList.size();i+=2){
-            int value = inputList.get(i)*2;
-            outputList.set(i,value);
-            Thread.yield();
-        }
-    }
-}
-
 class Codechef {
     public static void main(String[] args) {
-        List<Integer> inputList = new ArrayList<>();
-        List<Integer> outputList = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        Runnable task = new InsertTask(list);
 
-        // Initialize the inputList
-        for (int i = 1; i <= 6; i++) {
-            inputList.add(i);
-        }
+        Thread thread = new Thread(task);
+        thread.start();
 
-        // Initialize the outputList with the same size as the inputList
-        for (int i = 0; i < 6; i++) {
-            outputList.add(0);
-        }
-
-        Multiplier evenMultiplier = new Multiplier(inputList, outputList, 0);
-        Multiplier oddMultiplier = new Multiplier(inputList, outputList, 1);
-
-        evenMultiplier.start();
-        oddMultiplier.start();
-
+        // Sleep for a while to allow the thread to execute
         try {
-            evenMultiplier.join();
-            oddMultiplier.join();
+            Thread.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        // Print the outputList
-        System.out.println("Output List: " + outputList);
+        // Interrupt the thread when the list size exceeds 
+        if (list.size() >= 5) {
+            thread.interrupt();
+        }
+    }
+}
+
+class InsertTask implements Runnable {
+    private List<Integer> list;
+
+    public InsertTask(List<Integer> list) {
+        this.list = list;
+    }
+
+    public void run() {
+        int value = 1;
+        while (!Thread.currentThread().isInterrupted() && list.size() < 5) {
+            System.out.println("Adding element: " + value);
+            list.add(value);
+            value++;
+            try {
+                Thread.sleep(5); // Simulate some work
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Restore interrupted status
+            }
+        }
     }
 }
