@@ -110,7 +110,7 @@ Playlist: 1<->2<->3<->4<->5
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:46:59.139Z  
+**Submitted:** 2026-09-24T15:34:58.463Z  
 
 ```java
 import java.util.Scanner;
