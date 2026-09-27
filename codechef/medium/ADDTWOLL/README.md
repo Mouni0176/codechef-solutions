@@ -92,7 +92,7 @@ Reverse $\rightarrow$ `0 0 2`
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-27T15:47:16.059Z  
+**Submitted:** 2026-09-27T15:47:16.430Z  
 
 ```java
 //class Node {
