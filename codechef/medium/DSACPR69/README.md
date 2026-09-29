@@ -112,7 +112,7 @@ Product: 4 * 4 = 16 (not within range)
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T15:12:39.336Z  
+**Submitted:** 2026-09-29T15:13:52.324Z  
 
 ```java
 import java.util.*;
@@ -138,7 +138,7 @@ class Codechef
     	for(int i=0;i<test;i++){
     	    int sum = pairs[i][0]+pairs[i][1];
     	    int mul = pairs[i][0]*pairs[i][1];
-    	    if(((sum<right)&&(sum>left)) && ((mul<right)&&(mul>left))){
+    	    if(((sum<=right)&&(sum>=left)) && ((mul<=right)&&(mul>=left))){
     	        System.out.println(pairs[i][0] +" "+ pairs[i][1]);
     	    }
     	}
