@@ -54,7 +54,7 @@ Therefore, the output is 2 56.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-18T02:17:54.917Z  
+**Submitted:** 2026-09-29T14:42:55.506Z  
 
 ```java
 class Solution {
