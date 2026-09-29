@@ -21,7 +21,7 @@ class Codechef
     	for(int i=0;i<test;i++){
     	    int sum = pairs[i][0]+pairs[i][1];
     	    int mul = pairs[i][0]*pairs[i][1];
-    	    if(((sum<right)&&(sum>left)) && ((mul<right)&&(mul>left))){
+    	    if(((sum<=right)&&(sum>=left)) && ((mul<=right)&&(mul>=left))){
     	        System.out.println(pairs[i][0] +" "+ pairs[i][1]);
     	    }
     	}
