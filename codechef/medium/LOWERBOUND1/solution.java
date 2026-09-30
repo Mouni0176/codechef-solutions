@@ -1,6 +1,6 @@
  static int solve(int[] nums, int x) {
     int left = 0;
-    int right = nums.length-1;
+    int right = nums.length;
     while(left<right){
         int mid =(left+right)/2;
         
