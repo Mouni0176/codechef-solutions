@@ -72,25 +72,24 @@ All numbers are greater than `-1`. So the answer is index `0`.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T15:25:13.024Z  
+**Submitted:** 2026-09-30T15:36:58.189Z  
 
 ```java
  static int solve(int[] nums, int x) {
     int left = 0;
     int right = nums.length-1;
-    while(left<=right){
+    while(left<right){
         int mid =(left+right)/2;
-        if(nums[mid] == x){
-            return mid+1;
-        }
-        else if(nums[mid]<x){
+        
+        
+         if(nums[mid]<x){
             left = mid+1;
         }
         else{
-            right = mid-1;
+            right = mid;
         }
     }
-    return right+1;
+    return left;
  }
 ```
 
