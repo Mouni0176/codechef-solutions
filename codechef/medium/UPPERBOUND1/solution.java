@@ -1,16 +1,12 @@
- static int solve(int[] nums, int x) {
-    int left = 0;
-    int right = nums.length;
-    while(left<right){
-        int mid =(left+right)/2;
-        
-        
-         if(nums[mid]<x){
-            left = mid+1;
+ static int upperBound(int[] nums, int x) {
+        int low = 0, high = nums.length;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] <= x) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
         }
-        else{
-            right = mid;
-        }
+        return low;
     }
-    return left;
- }
