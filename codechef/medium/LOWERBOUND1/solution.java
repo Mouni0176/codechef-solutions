@@ -1,7 +1,7 @@
  static int solve(int[] nums, int x) {
     int left = 0;
     int right = nums.length-1;
-    for(int i=0;i<nums.length;i++){
+    while(left<=right){
         int mid =(left+right)/2;
         if(nums[mid] == x){
             return mid+1;
