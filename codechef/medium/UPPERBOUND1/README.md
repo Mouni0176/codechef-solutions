@@ -73,7 +73,7 @@ The first element greater than `4` is `6` at index `4`.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T16:02:02.637Z  
+**Submitted:** 2026-09-30T16:03:48.631Z  
 
 ```java
  static int upperBound(int[] nums, int x) {
