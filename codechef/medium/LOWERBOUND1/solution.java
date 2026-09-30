@@ -1,16 +1,17 @@
-public static int searchInsertPosition(int[] arr, int n, int k) {
+ static int solve(int[] nums, int x) {
     int left = 0;
-    int right = n - 1;
-
-    while (left <= right) {
-        int middle = (left + right) / 2;
-        if (arr[middle] == k) {
-            return middle;
-        } else if (arr[middle] > k) {
-            right = middle - 1;
-        } else {
-            left = middle + 1;
+    int right = nums.length-1;
+    for(int i=0;i<nums.length;i++){
+        int mid =(left+right)/2;
+        if(nums[mid] == x){
+            return mid+1;
+        }
+        else if(nums[mid]<x){
+            left = mid+1;
+        }
+        else{
+            right = mid-1;
         }
     }
-    return left;
-}
+    return right+1;
+ }
