@@ -112,7 +112,7 @@ Product: 4 * 4 = 16 (not within range)
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T15:13:52.324Z  
+**Submitted:** 2026-10-16T12:08:39.007Z  
 
 ```java
 import java.util.*;
