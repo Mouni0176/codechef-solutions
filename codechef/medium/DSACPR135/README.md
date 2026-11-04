@@ -4,16 +4,28 @@
 
 ## Problem
 
-_Description not available._
+### Simulate Stack - 1
+
+Given some stack operation, Find what will be the resultant output after the following operations.
+
+### Operations
+- Push 4
+- Pop
+- Push 11
+- Peek
+- Pop
+- Peek
+
+ **Print the stack top value once we call peek**
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T14:40:33.842Z  
+**Submitted:** 2026-11-04T14:41:04.507Z  
 
-```java
+```cpp
 static int peek() {
     if (top >= 0) {
         int ele = a[top];
