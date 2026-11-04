@@ -30,7 +30,7 @@ Hello, World!
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T14:58:34.423Z  
+**Submitted:** 2026-11-04T14:58:42.534Z  
 
 ```java
 import java.util.Scanner;
