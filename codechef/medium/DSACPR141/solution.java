@@ -6,7 +6,7 @@ class BalancedParentheses {
     static int top = -1;
 
     static void push(char ele) {
-        if (top <= MAX_SIZE - 1) {
+        if (top < MAX_SIZE - 1) {
             a[++top] = ele;
         } else {
             System.out.println("Stack is full. Cannot push: " + ele);
