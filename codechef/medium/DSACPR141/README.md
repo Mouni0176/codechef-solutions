@@ -4,25 +4,61 @@
 
 ## Problem
 
-_Description not available._
+### Valid Parenthesis
+
+A string of parentheses is considered valid if each opening parenthesis has a matching closing parenthesis and the pairs are properly nested. In a valid parenthesis string, every opening bracket '(' must have a corresponding closing bracket ')' that occurs after the opening bracket, and there must not be any extra or unpaired brackets.
+
+Here are the rules for a string of parentheses to be valid:
+
+- Correct order: Each closing parenthesis must correspond to the latest unmatched opening parenthesis.
+- Matching pairs: For every opening parenthesis, there must be a closing parenthesis.
+
+Let's look at some examples:
+
+- "()" - This is valid because the only pair of parentheses correctly matches and is in the right order.
+- "()()" - This is also valid. There are two separate but correct matches.
+- "(()())" - Valid as well, since the inner pair is nested within the outer pair and they all match up.
+- "(())" - The inner pair is nested within the outer pair, with both pairs being correctly matched.
+- ")(" or "(" or ")" - All invalid because they contain either unmatched or improperly ordered parentheses.
+
+The goal is to determine if parentheses (and optionally other brackets like curly braces and square brackets) in an expression are properly balanced.
+Check the sample test cases given below for expected input and output format.
+
+Complete the code in the IDE to solve this problem.
+
+### Sample 1:
+Input
+Output
+
+```
+3
+((()))
+()()()
+(((())
+```
+
+```
+((())) : true
+()()() : true
+(((()) : false
+```
 
 ## Solution
 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T15:13:10.456Z  
+**Submitted:** 2026-11-05T16:31:09.151Z  
 
 ```java
 import java.util.Scanner;
-import java.util.Stack;
 
-class DecimalToBinary {
+class BalancedParentheses {
     static final int MAX_SIZE = 101;
-    static int[] a = new int[MAX_SIZE];
+    static char[] a = new char[MAX_SIZE];
     static int top = -1;
 
-    static void push(int ele) {
+    static void push(char ele) {
         if (top <= MAX_SIZE - 1) {
             a[++top] = ele;
         } else {
@@ -30,14 +66,14 @@ class DecimalToBinary {
         }
     }
 
-    static int pop() {
+    static char pop() {
         if (top >= 0) {
-            int ele = a[top];
+            char ele = a[top];
             top--;
             return ele;
         } else {
             System.out.println("Stack is empty. Cannot pop.");
-            return -1;
+            return '-';
         }
     }
 
@@ -45,28 +81,34 @@ class DecimalToBinary {
         return top == -1;
     }
 
-    static int size() {
-        return top + 1;
+    static boolean isFull() {
+        return top >= MAX_SIZE;
     }
 
-    static void decimalToBinary(int decimal) {
-        while (decimal > 0) {
-            
-            int b=decimal%2;
-            push(b);
-            decimal=decimal/2;
-            
-        }
+    static boolean isMatchingPair(char open, char close) {
+        return (open == '(' && close == ')');
+    }
 
-        if (isEmpty()) {
-            System.out.println("Stack is empty");
-            return;
-        }
-
-        while (!isEmpty()) {
-            System.out.print(pop());
-        }
-        System.out.println();
+    static boolean isBalanced(String expression) {
+        top =-1;
+        
+        for(int i=0;i<expression.length();i++){
+            char c=expression.charAt(i);
+            if(c=='('){
+                push(c);
+            }
+            else if(c==')'){
+                if(isEmpty()){
+                    return false;
+                }
+                char topchar = pop();
+                if(!isMatchingPair(topchar,c)){
+                    return false;
+                }
+            }
+        
+    }
+    return isEmpty();
     }
 
     public static void main(String[] args) {
@@ -74,8 +116,8 @@ class DecimalToBinary {
         int t = scanner.nextInt();
 
         while (t-- > 0) {
-            int decimal = scanner.nextInt();
-            decimalToBinary(decimal);
+            String str = scanner.next();
+            System.out.println(str + " : " + isBalanced(str));
         }
     }
 }
