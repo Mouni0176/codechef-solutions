@@ -48,7 +48,7 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-05T16:31:50.141Z  
+**Submitted:** 2026-11-05T16:34:29.998Z  
 
 ```java
 import java.util.Scanner;
@@ -59,7 +59,7 @@ class BalancedParentheses {
     static int top = -1;
 
     static void push(char ele) {
-        if (top <= MAX_SIZE - 1) {
+        if (top < MAX_SIZE - 1) {
             a[++top] = ele;
         } else {
             System.out.println("Stack is full. Cannot push: " + ele);
