@@ -1,12 +1,11 @@
 import java.util.Scanner;
-import java.util.Stack;
 
-class DecimalToBinary {
+class BalancedParentheses {
     static final int MAX_SIZE = 101;
-    static int[] a = new int[MAX_SIZE];
+    static char[] a = new char[MAX_SIZE];
     static int top = -1;
 
-    static void push(int ele) {
+    static void push(char ele) {
         if (top <= MAX_SIZE - 1) {
             a[++top] = ele;
         } else {
@@ -14,14 +13,14 @@ class DecimalToBinary {
         }
     }
 
-    static int pop() {
+    static char pop() {
         if (top >= 0) {
-            int ele = a[top];
+            char ele = a[top];
             top--;
             return ele;
         } else {
             System.out.println("Stack is empty. Cannot pop.");
-            return -1;
+            return '-';
         }
     }
 
@@ -29,28 +28,34 @@ class DecimalToBinary {
         return top == -1;
     }
 
-    static int size() {
-        return top + 1;
+    static boolean isFull() {
+        return top >= MAX_SIZE;
     }
 
-    static void decimalToBinary(int decimal) {
-        while (decimal > 0) {
-            
-            int b=decimal%2;
-            push(b);
-            decimal=decimal/2;
-            
-        }
+    static boolean isMatchingPair(char open, char close) {
+        return (open == '(' && close == ')');
+    }
 
-        if (isEmpty()) {
-            System.out.println("Stack is empty");
-            return;
-        }
-
-        while (!isEmpty()) {
-            System.out.print(pop());
-        }
-        System.out.println();
+    static boolean isBalanced(String expression) {
+        top =-1;
+        
+        for(int i=0;i<expression.length();i++){
+            char c=expression.charAt(i);
+            if(c=='('){
+                push(c);
+            }
+            else if(c==')'){
+                if(isEmpty()){
+                    return false;
+                }
+                char topchar = pop();
+                if(!isMatchingPair(topchar,c)){
+                    return false;
+                }
+            }
+        
+    }
+    return isEmpty();
     }
 
     public static void main(String[] args) {
@@ -58,8 +63,8 @@ class DecimalToBinary {
         int t = scanner.nextInt();
 
         while (t-- > 0) {
-            int decimal = scanner.nextInt();
-            decimalToBinary(decimal);
+            String str = scanner.next();
+            System.out.println(str + " : " + isBalanced(str));
         }
     }
 }
